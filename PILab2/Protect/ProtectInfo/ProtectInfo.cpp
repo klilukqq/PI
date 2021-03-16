@@ -31,7 +31,7 @@ long int encrypt(long int i, long int e, long int n)
 {
 	long int current, result;
 
-	current = i - 97;
+	current = i - 224;
 	result = 1;
 
 	for (long int j = 0; j < e; j++)
@@ -42,7 +42,7 @@ long int encrypt(long int i, long int e, long int n)
 	result = result % n;
 	return result;
 }
-
+//русский 224 английский 97
 long int decrypt(long int i, long int d, long int n)
 {
 	long int current, result;
@@ -56,7 +56,7 @@ long int decrypt(long int i, long int d, long int n)
 		result = result % n;
 	}
 
-	return result + 97;
+	return result + 224;
 }
 
 int InputNum() {
@@ -77,6 +77,7 @@ int InputNum() {
 
 int main() {
 	//ввод чисел
+
 	int first_num, second_num;
 
 	long int encryptedText[100];
