@@ -1,0 +1,6 @@
+﻿  ProtectInfo.cpp
+C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(115,25): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(121,25): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(94,11): warning C4101: closed_key: неиспользованная локальная переменная
+C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(82,7): warning C4101: flag: неиспользованная локальная переменная
+  ProtectInfo.vcxproj -> C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\Debug\ProtectInfo.exe
