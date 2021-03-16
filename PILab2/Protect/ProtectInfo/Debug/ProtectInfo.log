@@ -1,4 +1,4 @@
 ﻿  ProtectInfo.cpp
-C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(114,25): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(120,25): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(114,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\ProtectInfo\ProtectInfo.cpp(120,21): warning C4018: <: несоответствие типов со знаком и без знака
   ProtectInfo.vcxproj -> C:\Users\roman\Documents\GitHub\PI\PILab2\Protect\Debug\ProtectInfo.exe

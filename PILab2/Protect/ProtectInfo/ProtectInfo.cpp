@@ -5,16 +5,16 @@
 #include <cmath>
 using namespace std;
 
-long int calculateE(long int t);
-long int calculateD(long int e, long int t);
-long int greatestCommonDivisor(long int e, long int t);
+ int calculateE( int t);
+ int calculateD( int e,  int t);
+ int greatestCommonDivisor( int e,  int t);
 
 
-bool IsNatural(long int prime)
+bool IsNatural( int prime)
 {
-	long int i, j;
+	 int i, j;
 
-	j = (long int)sqrt((long double)prime);
+	j = ( int)sqrt(( double)prime);
 
 	for (i = 2; i <= j; i++)
 	{
@@ -27,14 +27,14 @@ bool IsNatural(long int prime)
 	return true;
 }
 
-long int encrypt(long int i, long int e, long int n)
+ int encrypt( int i,  int e,  int n)
 {
-	long int current, result;
+	 int current, result;
 
 	current = i - 224;
 	result = 1;
 
-	for (long int j = 0; j < e; j++)
+	for ( int j = 0; j < e; j++)
 	{
 		result = result * current;
 		
@@ -43,14 +43,14 @@ long int encrypt(long int i, long int e, long int n)
 	return result;
 }
 //русский 224 английский 97
-long int decrypt(long int i, long int d, long int n)
+ int decrypt( int i,  int d,  int n)
 {
-	long int current, result;
+	 int current, result;
 
 	current = i;
 	result = 1;
 
-	for (long int j = 0; j < d; j++)
+	for ( int j = 0; j < d; j++)
 	{
 		result = result * current;
 		result = result % n;
@@ -80,9 +80,9 @@ int main() {
 
 	int first_num, second_num;
 
-	long int encryptedText[100];
+	 int encryptedText[100];
 	memset(encryptedText, 0, sizeof(encryptedText));
-	long int decryptedText[100];
+	 int decryptedText[100];
 	memset(decryptedText, 0, sizeof(decryptedText));
 
 	//ввод начальных чисел
@@ -111,13 +111,13 @@ int main() {
 	getline(cin, message);
 	cout << "\nThe message is: " << message << endl;
 	//кодировка и раскодировка
-	for (long int i = 0; i < message.length(); i++)
+	for ( int i = 0; i < message.length(); i++)
 	{
 		encryptedText[i] = encrypt(message[i], e, n);
 	}
 
 	cout << "------encrypt message" << endl;
-	for (long int i = 0; i < message.length(); i++)
+	for ( int i = 0; i < message.length(); i++)
 	{
 		cout << (char)encryptedText[i];
 	}
@@ -131,11 +131,11 @@ int main() {
 
 
 
-long int calculateE(long int t)
+ int calculateE( int t)
 {
 	// Выбирается целое число e ( 1 < e < t ) 
 
-	long int e;
+	 int e;
 
 	for (e = 2; e < t; e++)
 	{
@@ -148,12 +148,12 @@ long int calculateE(long int t)
 	return -1;
 }
 
-long int calculateD(long int e, long int t)
+ int calculateD( int e,  int t)
 {
 	// Вычисляется число d
 
-	long int d;
-	long int k = 1;
+	 int d;
+	 int k = 1;
 
 	while (1)
 	{
@@ -168,11 +168,11 @@ long int calculateD(long int e, long int t)
 
 }
 
-long int greatestCommonDivisor(long int e, long int t)
+ int greatestCommonDivisor( int e,  int t)
 {
 	while (e > 0)
 	{
-		long int myTemp;
+		 int myTemp;
 
 		myTemp = e;
 		e = t % e;
