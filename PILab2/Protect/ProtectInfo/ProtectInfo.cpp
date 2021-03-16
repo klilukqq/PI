@@ -42,7 +42,7 @@ bool IsNatural( int prime)
 	result = result % n;
 	return result;
 }
-//русский 224 английский 97
+
  int decrypt( int i,  int d,  int n)
 {
 	 int current, result;
