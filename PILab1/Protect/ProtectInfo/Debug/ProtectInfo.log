@@ -1,0 +1,4 @@
+﻿  ProtectInfo.cpp
+C:\Users\roman\Desktop\PI\PILAB\ProtectInfo\ProtectInfo\ProtectInfo.cpp(96): warning C4715: coder: значение возвращается не при всех путях выполнения
+C:\Users\roman\Desktop\PI\PILAB\ProtectInfo\ProtectInfo\ProtectInfo.cpp(155): warning C4715: decoder: значение возвращается не при всех путях выполнения
+  ProtectInfo.vcxproj -> C:\Users\roman\Desktop\PI\PILAB\ProtectInfo\Debug\ProtectInfo.exe
