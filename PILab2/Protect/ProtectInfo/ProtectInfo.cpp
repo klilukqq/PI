@@ -114,13 +114,14 @@ int main() {
 	cin.ignore();
 	getline(cin, message);
 	cout << "\nThe message is: " << message << endl;
+
 	//кодировка и раскодировка
 	for ( int i = 0; i < message.length(); i++)
 	{
-		if (message[i] == ' ') {
+		/*if (message[i] == ' ') {
 			encryptedText[i] = ' ';
 			continue;
-		}
+		}*/
 		encryptedText[i] = encrypt(message[i], e, n);
 	}
 
@@ -130,14 +131,12 @@ int main() {
 		cout << (char)encryptedText[i];
 	}
 
-	//message = RSA(message, d, n);
-
 	for (int i = 0; i < message.length(); i++)
 	{
-		if (message[i] == ' ') {
+		/*if (message[i] == ' ') {
 			decryptedText[i] = ' ';
 			continue;
-		}
+		}*/
 		decryptedText[i] = decrypt(encryptedText[i], d, n);
 	}
 
