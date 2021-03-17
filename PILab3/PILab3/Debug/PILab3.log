@@ -1,4 +1,0 @@
-﻿  PILab3.cpp
-C:\Users\8181025\Desktop\PILab3\PILab3\PILab3\PILab3.cpp(8,1): warning C4005: _CRT_SECURE_NO_WARNINGS: изменение макроопределения
-C:\Users\8181025\Desktop\PILab3\PILab3\PILab3\PILab3.cpp : message : см. предыдущее определение "_CRT_SECURE_NO_WARNINGS"
-  PILab3.vcxproj -> C:\Users\8181025\Desktop\PILab3\PILab3\Debug\PILab3.exe
