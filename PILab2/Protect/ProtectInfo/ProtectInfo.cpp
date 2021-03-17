@@ -27,11 +27,13 @@ bool IsNatural( int prime)
 	return true;
 }
 
+
+// -97 - англ  +64 - русский
  int encrypt( int i,  int e,  int n)
 {
 	 int current, result;
 
-	current = i - 224;
+	current = i + 64;
 	result = 1;
 
 	for ( int j = 0; j < e; j++)
@@ -43,6 +45,7 @@ bool IsNatural( int prime)
 	return result;
 }
 
+ // +97 - англ  -64 - русский
  int decrypt( int i,  int d,  int n)
 {
 	 int current, result;
@@ -56,7 +59,7 @@ bool IsNatural( int prime)
 		result = result % n;
 	}
 
-	return result + 224;
+	return result - 64;
 }
 
 int InputNum() {
@@ -80,6 +83,8 @@ int main() {
 
 	int first_num, second_num;
 
+	cout << (int)' ' << " " << (int)'a';
+
 	 int encryptedText[100];
 	memset(encryptedText, 0, sizeof(encryptedText));
 	 int decryptedText[100];
@@ -94,7 +99,6 @@ int main() {
 	n = first_num * second_num;
 	phi = (first_num - 1) * (second_num - 1);
 	
-	int k = 1;
 	int d;
 
 	e = calculateE(phi);
@@ -113,6 +117,10 @@ int main() {
 	//кодировка и раскодировка
 	for ( int i = 0; i < message.length(); i++)
 	{
+		if (message[i] == ' ') {
+			encryptedText[i] = ' ';
+			continue;
+		}
 		encryptedText[i] = encrypt(message[i], e, n);
 	}
 
@@ -123,8 +131,23 @@ int main() {
 	}
 
 	//message = RSA(message, d, n);
+
+	for (int i = 0; i < message.length(); i++)
+	{
+		if (message[i] == ' ') {
+			decryptedText[i] = ' ';
+			continue;
+		}
+		decryptedText[i] = decrypt(encryptedText[i], d, n);
+	}
+
 	cout << "\n------decrypted message" << endl;
-	cout << message;
+	//cout <<  message;
+
+	for (int i = 0; i < message.length(); i++)
+	{
+		cout << (char)decryptedText[i];
+	}
 
 	return 0;
 }
