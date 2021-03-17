@@ -33,7 +33,7 @@ bool IsNatural( int prime)
 {
 	 int current, result;
 
-	current = i + 64;
+	current = i - 97;
 	result = 1;
 
 	for ( int j = 0; j < e; j++)
@@ -59,7 +59,7 @@ bool IsNatural( int prime)
 		result = result % n;
 	}
 
-	return result - 64;
+	return result + 97;
 }
 
 int InputNum() {
