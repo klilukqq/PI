@@ -70,114 +70,115 @@ int main() {
 	bool flag = false;
 
 	int choose = -1;
-
-	do
+	while (true)
 	{
-		cout << "Чтобы раскодировать информацию введите 1" << endl;
-		cout << "Чтобы закодировать информацию введите 2" << endl;
-		cout << "Чтобы выйти введите 0" << endl;
-		cin >> choose;
-	} while (choose <= -1 || choose >= 3);
 
-	if (choose == 0)
-	{
-		return 0;
-	}
 
-	if (choose == 1)
-	{
-		flag = true;
-	}
-	
-	if (choose == 2)
-	{
-		flag = false;
-	}
+		do
+		{
+			cout << "Чтобы раскодировать информацию введите 1" << endl;
+			cout << "Чтобы закодировать информацию введите 2" << endl;
+			cout << "Чтобы выйти введите 0" << endl;
+			cin >> choose;
+		} while (choose <= -1 || choose >= 3);
 
-	if (flag) {
-		
-		string filename;
-		
-		cout << "Введите имя файла для раскодировки" << endl;
-
-		cin >> filename;
-
-		FILE* picture = fopen(filename.c_str(), "rb");
-
-		fread(&head, sizeof(head), 1, picture);
-
-		fread(&info, sizeof(info), 1, picture);
-
-		FILE* text = fopen("decode.txt", "wb");
-
-		while (true) {
-
-			fread(&pixel, sizeof(pixel), 1, picture);
-
-			uint8_t byte = decode(pixel);
-
-			if (byte == 0xFF)
-
-				break;
-
-			else
-
-				fwrite(&byte, 1, 1, text);
-
+		if (choose == 0)
+		{
+			return 0;
 		}
 
-		fclose(picture);
-
-		fclose(text);
-
-	}
-
-	else {
-
-		FILE* picture = fopen("pict2.bmp", "rb");
-
-		fread(&head, sizeof(head), 1, picture);
-
-		fread(&info, sizeof(info), 1, picture);
-
-		FILE* text = fopen("info_text.txt", "rb");
-
-		FILE* newPicture = fopen("pict_new.bmp", "wb");
-
-		fwrite(&head, sizeof(head), 1, newPicture);
-
-		fwrite(&info, sizeof(info), 1, newPicture);
-
-		while (true)
+		if (choose == 1)
 		{
-			//считываем и прячем пока есть символы
-			uint8_t letter;
+			flag = true;
+		}
 
-			size_t x = fread(&letter, 1, 1, text);
+		if (choose == 2)
+		{
+			flag = false;
+		}
 
-			if (x != 1) letter = 0xFF;
+		if (flag) {
 
-			fread(&pixel, sizeof(pixel), 1, picture);
+			string filename;
 
-			hide_byte_into_pixel(&pixel, letter);
+			cout << "Введите имя файла для раскодировки" << endl;
 
-			fwrite(&pixel, sizeof(pixel), 1, newPicture);
-			
-			if (letter == 0xFF)
-			{
-				break;
+			cin >> filename;
+
+			FILE* picture = fopen(filename.c_str(), "rb");
+
+			fread(&head, sizeof(head), 1, picture);
+
+			fread(&info, sizeof(info), 1, picture);
+
+			FILE* text = fopen("decode.txt", "wb");
+
+			while (true) {
+
+				fread(&pixel, sizeof(pixel), 1, picture);
+
+				uint8_t byte = decode(pixel);
+
+				if (byte == 0xFF)
+
+					break;
+
+				else
+
+					fwrite(&byte, 1, 1, text);
+
 			}
 
+			fclose(picture);
+
+			fclose(text);
+
 		}
 
-		fclose(picture);
+		else {
 
-		fclose(text);
+			FILE* picture = fopen("pict2.bmp", "rb");
 
-		fclose(newPicture);
+			fread(&head, sizeof(head), 1, picture);
 
+			fread(&info, sizeof(info), 1, picture);
+
+			FILE* text = fopen("info_text.txt", "rb");
+
+			FILE* newPicture = fopen("pict_new.bmp", "wb");
+
+			fwrite(&head, sizeof(head), 1, newPicture);
+
+			fwrite(&info, sizeof(info), 1, newPicture);
+
+			//while (true)
+			int size = info.biWidth * info.biHeight;
+
+			for (int i = 0; i < size; i++)
+			{
+				//считываем и прячем пока есть символы
+				uint8_t letter;
+
+				size_t x = fread(&letter, 1, 1, text);
+
+				if (x != 1) letter = 0xFF;
+
+				fread(&pixel, sizeof(pixel), 1, picture);
+
+				hide_byte_into_pixel(&pixel, letter);
+
+				fwrite(&pixel, sizeof(pixel), 1, newPicture);
+
+			}
+
+			fclose(picture);
+
+			fclose(text);
+
+			fclose(newPicture);
+
+		}
 	}
-
 	return 0;
 
 }
